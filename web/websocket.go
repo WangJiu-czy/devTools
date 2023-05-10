@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-func initWs() *Manager {
+func InitWs() *Manager {
 	go WsManagerHandle()
 	webSocketManager = &Manager{
 		Group:       make(map[string]*Client, 100),
