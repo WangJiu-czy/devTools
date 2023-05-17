@@ -8,15 +8,20 @@ import (
 	"sync"
 )
 
-func InitWs() *Manager {
-	go WsManagerHandle()
+func InitDefaultWs() *Manager {
+
 	webSocketManager = &Manager{
 		Group:       make(map[string]*Client, 100),
 		Register:    make(chan *Client),
 		UnRegister:  make(chan *Client),
 		clientCount: 0,
 	}
+	go WsManagerHandle()
 	return webSocketManager
+}
+func InitWs(maneger *Manager) {
+	webSocketManager = maneger
+	go WsManagerHandle()
 }
 
 var webSocketManager *Manager

@@ -9,6 +9,7 @@ import (
 )
 
 func TestClient_Read(t *testing.T) {
+	_ = InitDefaultWs()
 	app := gin.Default()
 	app.GET("/ws", WsCl)
 	app.Run(":8080")

@@ -2,6 +2,7 @@ package data
 
 import "math/rand"
 
+// 抽样函数
 func Samples[T any](collection []T, count int) []T {
 	size := len(collection)
 
